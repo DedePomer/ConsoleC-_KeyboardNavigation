@@ -29,7 +29,7 @@
 
             HighlightElement(correntCursorPosition, correntCursorPosition);
 
-            while ((key = Console.ReadKey(true).Key) != ConsoleKey.Enter)
+            while ((key = Console.ReadKey(true).Key) != ConsoleKey.Enter) /*вынести в одельный метод*/
             {
                 if (key == ConsoleKey.UpArrow)
                 {
