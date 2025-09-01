@@ -31,7 +31,7 @@ namespace ConsoleC__KeyboardNavigation.Pages.MainPage
             Console.WriteLine(MENU_TITLE + MENU_SPLITTER);
             foreach (var item in _menu)
             {
-                (item as SimpleElement).DisplayElement();
+                Console.WriteLine(item.GetDisplayElement());
             }
         }
     }

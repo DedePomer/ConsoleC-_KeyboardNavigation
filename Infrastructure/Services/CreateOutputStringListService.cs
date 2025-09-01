@@ -9,7 +9,7 @@ namespace ConsoleC__KeyboardNavigation.Infrastructure.Services
             List<string> outputStrings = new List<string>();
             foreach (var element in elements)
             {
-                outputStrings.Add(element.Text);
+                outputStrings.Add(element.GetDisplayElement());
             }
             return outputStrings;
         }
