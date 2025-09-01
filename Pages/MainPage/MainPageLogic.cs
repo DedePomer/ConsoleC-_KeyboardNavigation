@@ -1,5 +1,4 @@
 ﻿using ConsoleC__KeyboardNavigation.Infrastructure.Builders;
-using ConsoleC__KeyboardNavigation.Infrastructure.Interfaces;
 using ConsoleC__KeyboardNavigation.Model.DataType;
 
 namespace ConsoleC__KeyboardNavigation.Pages.MainPage
