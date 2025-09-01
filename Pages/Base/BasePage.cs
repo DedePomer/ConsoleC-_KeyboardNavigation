@@ -1,32 +1,29 @@
-﻿using ConsoleC__KeyboardNavigation.Model.DataType;
-using ConsoleC__KeyboardNavigation.Model.Interfaces;
-
-namespace ConsoleC__KeyboardNavigation.Pages.Base
+﻿namespace ConsoleC__KeyboardNavigation.Pages.Base
 {
     public class BasePage
     {
-        private const int TOP_CURSOR_POSITION = 2;
+        private const int TOP_CURSOR_POSITION = 3;
         private ConsoleColor _defaultColor { get; } = Console.ForegroundColor;
         private ConsoleColor _highlightColor { get; } = ConsoleColor.Green;
-        private List<SimpleElement> _elements; 
+        private List<string> _texts;
 
         private void HighlightElement(int correntCursorPosition, int pastCursorPosition)
         {
             Console.SetCursorPosition(0, pastCursorPosition);
-            Console.WriteLine(_elements[pastCursorPosition - 1].Text);
+            Console.WriteLine(_texts[pastCursorPosition - TOP_CURSOR_POSITION]);
             Console.SetCursorPosition(0, correntCursorPosition);
             Console.ForegroundColor = _highlightColor;
-            Console.WriteLine(_elements[correntCursorPosition - 1].Text);
+            Console.WriteLine(_texts[correntCursorPosition - TOP_CURSOR_POSITION]);
             Console.ForegroundColor = _defaultColor;
             Console.CursorTop = correntCursorPosition;
         }
 
 
-        public void NavigationOnMenu(List<SimpleElement> elements)
+        public int GetNumberSelectedElement(List<string> texts)
         {
-            _elements = elements;
+            _texts = texts;
             int correntCursorPosition = TOP_CURSOR_POSITION;
-            int downCursorPosition = elements.Count() + TOP_CURSOR_POSITION;
+            int downCursorPosition = texts.Count() + TOP_CURSOR_POSITION;
             Console.CursorTop = TOP_CURSOR_POSITION;
             ConsoleKey key;
 
@@ -38,7 +35,7 @@ namespace ConsoleC__KeyboardNavigation.Pages.Base
                 {
                     if (correntCursorPosition > TOP_CURSOR_POSITION)
                     {
-                        HighlightElement(correntCursorPosition-1, correntCursorPosition);
+                        HighlightElement(correntCursorPosition - 1, correntCursorPosition);
                         correntCursorPosition--;
                     }
                 }
@@ -52,12 +49,8 @@ namespace ConsoleC__KeyboardNavigation.Pages.Base
                 }
             }
 
-            elements[correntCursorPosition - 1].Execute(null);
+            return correntCursorPosition - TOP_CURSOR_POSITION;
 
         }
-
-
-
-
     }
 }

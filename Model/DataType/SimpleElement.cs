@@ -1,6 +1,6 @@
 ﻿namespace ConsoleC__KeyboardNavigation.Model.DataType
 {
-    public class SimpleElement
+    public class SimpleElement: IElement
     {
         public int Id { get; set; }
         public string Text { get; set; }

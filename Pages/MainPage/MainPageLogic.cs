@@ -6,7 +6,7 @@ namespace ConsoleC__KeyboardNavigation.Pages.MainPage
     public partial class MainPage
     {
         private const string MENU_TITLE = "Управление реализованно с помощью стреок и enter\n";
-        private const string MENU_SPLITTER = "#-------------------------------------------#\n";
+        private const string MENU_SPLITTER = "#----------------------------------------------#\n";
         private void FillMenu()
         {
             SimpleElementBuilder builder = new SimpleElementBuilder();

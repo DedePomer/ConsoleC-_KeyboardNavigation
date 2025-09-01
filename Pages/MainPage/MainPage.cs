@@ -1,4 +1,5 @@
 ﻿using ConsoleC__KeyboardNavigation.Infrastructure.Interfaces;
+using ConsoleC__KeyboardNavigation.Infrastructure.Services;
 using ConsoleC__KeyboardNavigation.Model.DataType;
 using ConsoleC__KeyboardNavigation.Pages.Base;
 
@@ -18,16 +19,17 @@ namespace ConsoleC__KeyboardNavigation.Pages.MainPage
             _navigation = navigation;
             FillMenu();
             MenuRendering();
-            NavigationOnMenu(_menu);
+            SimpleElement element = _menu[GetNumberSelectedElement(CreateOutputStringListService.GetSimpleElementsList(_menu))];
+            element.Execute(element);
         }
 
         private void OpenProducts(object? obj)
         {
-
+            Environment.Exit(0);
         }
         private void OpenAddProducts(object? obj)
         {
-
+            Environment.Exit(0);
         }
         private void OpenExit(object? obj)
         {
